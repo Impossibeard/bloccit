@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   #get 'posts/index'
 
   #get 'posts/show'
@@ -9,6 +10,8 @@ Rails.application.routes.draw do
 
 #instructs rails to create post routes for creating, updating, viewing, and deleting instances of Post
   resources :posts
+
+  resources :advertisements
 
   #get 'welcome/index'
 
