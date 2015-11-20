@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   #get 'posts/edit'
 
 #instructs rails to create post routes for creating, updating, viewing, and deleting instances of Post
-  resources :posts
+  resources :topics do
+    resources :posts, except: [:index]
+  end
 
   #get 'welcome/index'
 
