@@ -5,6 +5,10 @@ class TopicsController < ApplicationController
 
   def show
     @topic = Topic.find(params[:id])
+    posts = @topic.posts
+    sponsored_posts = @topic.sponsored_posts
+    @collection = posts + sponsored_posts
+    @collection.shuffle!
   end
 
   def new
