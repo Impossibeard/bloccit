@@ -35,4 +35,5 @@ gem 'jquery-rails'
 gem 'turbolinks'
 
 gem 'bootstrap-sass'
-#At #1 and #2 we specify different databases for our Development and Production environments.
+
+gem 'bcrypt'
