@@ -1,6 +1,21 @@
 class User < ActiveRecord::Base
   before_save { self.email = email.downcase}
 
+  before_save :capped_name
+
+  def capped_name
+    if self.name
+      name_arr = []
+      self.name.split(" ").each do |x|
+          name_arr << x.capitalize!
+      end
+      self.name = name_arr.join(" ")
+    end
+
+  end
+
+
+
   EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
   validates :name, length: { minimum: 1, maximum: 100 }, presence: true
