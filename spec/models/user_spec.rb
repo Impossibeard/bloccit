@@ -1,7 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  let(:user) { User.create!(name: "Bloccit User", email: "user@bloccit.com", password: "password")}
+  let(:user) { User.create!(name: "Bloccit User", email: "user@bloccit.com", password: "password") }
+
+  it { should have_many(:posts) }
 
   #Shoulda tests for name
   it { should validate_presence_of(:name) }
