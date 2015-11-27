@@ -15,5 +15,5 @@ has_many :posts
 
   has_secure_password
 
-  enum role: [:member, :admin]
+  enum role: [:member, :admin, :moderator]
 end
