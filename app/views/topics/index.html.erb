@@ -3,7 +3,7 @@
 <div class="row">
   <div class="col-md-8">
     <% @topics.each do |topic| %>
-      <%= render partial: 'topics/topic', locals: {topic: topic} %>
+      <%= render @topic %>
     <% end %>
   </div>
   <% if user_is_authorized_for_topics? %>
