@@ -1,13 +1,7 @@
 Rails.application.routes.draw do
-  #get 'posts/index'
 
-  #get 'posts/show'
+  resources :labels, only: [:show]
 
-  #get 'posts/new'
-
-  #get 'posts/edit'
-
-#instructs rails to create post routes for creating, updating, viewing, and deleting instances of Post
   resources :topics do
     resources :posts, except: [:index]
   end
