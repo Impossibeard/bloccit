@@ -37,3 +37,6 @@ gem 'turbolinks'
 gem 'bootstrap-sass'
 
 gem 'bcrypt'
+
+#handles sensitive data with environment variables
+gem 'figaro', '1.0'
