@@ -7,6 +7,7 @@ class Post < ActiveRecord::Base
   has_many :labelings, as: :labelable
   has_many :labels, through: :labelings
   has_many :favorites, dependent: :destroy
+  after_create :auto_favorite
 
   default_scope { order('rank DESC')}
 
@@ -32,4 +33,10 @@ class Post < ActiveRecord::Base
     new_rank = points + age_in_days
     update_attribute(:rank, new_rank)
   end
+
+  private
+  def auto_favorite
+    self.user.favorites.build
+  end
+
 end

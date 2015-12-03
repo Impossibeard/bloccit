@@ -1,0 +1,6 @@
+You just posted: "<%= @post.title %>"
+ <%= "=" * (@post.title.length + 12) %>
+
+You will be notified when someone comments on your post.
+
+ Visit online at: <%= topic_post_url(@post.topic, @post) %>

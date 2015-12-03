@@ -79,4 +79,26 @@ RSpec.describe Post, type: :model do
     end
   end
 
+  describe "after_create" do
+ # #22
+     before do
+       @new_post = Post.new(title: RandomData.random_sentence, body: RandomData.random_paragraph, user: user)
+     end
+
+ # #23
+     it "sends an email to users who have favorited the post" do
+       favorite = user.favorites.create(post: @new_post)
+       expect(FavoriteMailer).to receive(:new_post).with(user, @new_post).and_return(double(deliver_now: true))
+
+       @new_post.save
+     end
+
+ # #24
+     it "does not send emails to users who haven't favorited the post" do
+       expect(FavoriteMailer).not_to receive(:new_post)
+
+       @new_post.save
+     end
+   end
+
 end
