@@ -33,4 +33,12 @@
 <% end %>
 
 <h2>Favorites</h2>
-<%= @user.favorite_for(@user.post) %>
+<% if @user.favorites.any? %>
+  <% fav_array = [] %>
+  <% @user.favorites.each do |f| %>
+  <% fav_array << f.post %>
+  <% end %>
+  <%= render fav_array %>
+<% else %>
+  <p><%= @user.name %> has not favorited any posts </p>
+<% end %>
